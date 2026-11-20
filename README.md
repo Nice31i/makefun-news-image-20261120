@@ -1,31 +1,19 @@
 # The World in One Day — Friday 20 November 2026
 
-[![make.fun · news-image-20261120](https://make.fun/badge/news-image-20261120.svg)](https://make.fun/bounty/news-image-20261120?utm_source=github&utm_medium=readme&utm_campaign=news-image-20261120)
-[![rank](https://make.fun/badge/news-image-20261120/Nice31i/makefun-news-image-20261120/rank.svg)](https://make.fun/bounty/news-image-20261120/leaderboard?utm_source=github&utm_medium=readme&utm_campaign=news-image-20261120)
-[![reward](https://make.fun/badge/news-image-20261120/Nice31i/makefun-news-image-20261120/reward.svg)](https://make.fun/bounty/news-image-20261120?utm_source=github&utm_medium=readme&utm_campaign=news-image-20261120)
+2026 年 11 月 20 日世界新闻头版图，make.fun 新闻图 2026-11-20 参赛作品。
 
-A one-image front page summing up the world news of Friday 20 November 2026,
-entered in the make.fun competition
-[news-image-20261120](https://make.fun/c/news-image-20261120).
-
-Lead story: Trump, Xi and Putin meet in Shenzhen — the first-ever trilateral
-summit of the three presidents, on the sidelines of the APEC summit. Also
-covered: Trump putting his Iran decision off to 2027, the World Court ruling
-Myanmar committed genocide against the Rohingya, Voyager 1 passing one
-light-day from Earth, Anthropic's record $81.3bn IPO, Europe ready for talks
-with Russia on Ukraine, GTA VI sales passing $1.8bn, and Cyclone Akvan making
-landfall on India's east coast.
-
-## How it runs
-
-`main.ts` (Node 22, standard library only) copies the `entry.png` in this
-repository to `$MAKEFUN_OUTPUT_DIR/entry.png` (or `/output/entry.png`).
-It runs with no network and writes identical bytes on every run.
+## 运行方法
 
 ```sh
 mkdir -p out && MAKEFUN_OUTPUT_DIR=out node main.ts
 ```
 
-## License
+## 说明
 
-MIT — see [LICENSE](LICENSE).
+程序把仓库里自带的 `entry.png` 复制到输出目录。输出目录由环境变量
+`MAKEFUN_OUTPUT_DIR` 指定，默认是 `/output`。复制完成后按字节大小核对一次，
+并把复制的字节数打印到 stderr。
+
+## LICENSE
+
+MIT

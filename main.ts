@@ -1,27 +1,32 @@
 // The World in One Day — Friday 20 November 2026.
-// make.fun competition news-image-20261120.
-// Node 22, standard library only. The front page is the entry.png shipped
-// beside this file; the program copies it to the output directory, so both
-// grader runs write the same bytes. No network is used.
-//
-//   mkdir -p out && MAKEFUN_OUTPUT_DIR=out node main.ts
+// make.fun 新闻图 2026-11-20 参赛作品。
+// 作用：把仓库自带的 entry.png 复制到输出目录。
 
-import { copyFileSync, existsSync, mkdirSync, statSync } from 'node:fs';
-import { join } from 'node:path';
+import { copyFileSync, existsSync, mkdirSync, statSync } from "node:fs";
+import { dirname, join } from "node:path";
+import { fileURLToPath } from "node:url";
 
-const outDir = process.env.MAKEFUN_OUTPUT_DIR ?? '/output';
-const source = new URL('./entry.png', import.meta.url);
+const outputDir = process.env.MAKEFUN_OUTPUT_DIR ?? "/output";
+const scriptDir = dirname(fileURLToPath(import.meta.url));
+const sourcePath = join(scriptDir, "entry.png");
 
-if (!existsSync(source)) {
-  throw new Error(`entry.png is missing from the repository: ${source.pathname}`);
+if (!existsSync(sourcePath)) {
+  console.error(`error: entry.png not found at ${sourcePath}`);
+  process.exit(1);
 }
 
-mkdirSync(outDir, { recursive: true });
-copyFileSync(source, join(outDir, 'entry.png'));
+mkdirSync(outputDir, { recursive: true });
 
-const expected = statSync(source).size;
-const actual = statSync(join(outDir, 'entry.png')).size;
-if (actual !== expected) {
-  throw new Error(`entry.png copy failed: expected ${expected} bytes, got ${actual} bytes`);
+const destPath = join(outputDir, "entry.png");
+const bytesCopied = statSync(sourcePath).size;
+copyFileSync(sourcePath, destPath);
+
+const destSize = statSync(destPath).size;
+if (destSize !== bytesCopied) {
+  console.error(
+    `error: size mismatch: expected ${bytesCopied} bytes, got ${destSize} bytes at ${destPath}`,
+  );
+  process.exit(1);
 }
-console.error(`entry.png copied (${actual} bytes)`);
+
+console.error(`copied ${bytesCopied} bytes to ${destPath}`);
