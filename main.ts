@@ -1,4 +1,4 @@
-// The World in One Day — Thursday 20 November 2026.
+// The World in One Day — Friday 20 November 2026.
 // make.fun competition news-image-20261120.
 // Node 22, standard library only. The front page is the entry.png shipped
 // beside this file; the program copies it to the output directory, so both
