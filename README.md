@@ -1,19 +1,19 @@
 # The World in One Day — Friday 20 November 2026
 
-2026 年 11 月 20 日世界新闻头版图，make.fun 新闻图 2026-11-20 参赛作品。
+[![make.fun · news-image-20261120](https://make.fun/badge/news-image-20261120.svg)](https://make.fun/bounty/news-image-20261120?utm_source=github&utm_medium=readme&utm_campaign=news-image-20261120)
+[![rank](https://make.fun/badge/news-image-20261120/Nice31i/makefun-news-image-20261120/rank.svg)](https://make.fun/bounty/news-image-20261120/leaderboard?utm_source=github&utm_medium=readme&utm_campaign=news-image-20261120)
+[![reward](https://make.fun/badge/news-image-20261120/Nice31i/makefun-news-image-20261120/reward.svg)](https://make.fun/bounty/news-image-20261120?utm_source=github&utm_medium=readme&utm_campaign=news-image-20261120)
 
-## 运行方法
+This is a one-page front page of world news for Friday 20 November 2026, entered in the make.fun news-image-20261120 contest — the day's headline is the trilateral summit in Shenzhen.
 
-```sh
+## Run
+
+```bash
 mkdir -p out && MAKEFUN_OUTPUT_DIR=out node main.ts
 ```
 
-## 说明
+The program copies the bundled `entry.png` from this repo into the output directory.
 
-程序把仓库里自带的 `entry.png` 复制到输出目录。输出目录由环境变量
-`MAKEFUN_OUTPUT_DIR` 指定，默认是 `/output`。复制完成后按字节大小核对一次，
-并把复制的字节数打印到 stderr。
+Contest page: https://make.fun/bounty/news-image-20261120
 
-## LICENSE
-
-MIT
+License: MIT
